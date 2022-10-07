@@ -21,4 +21,4 @@ jobs:
       with:
         dotnet-version: '6.0.300'
     - run: dotnet build
-      working-directory: $wd
+      working-directory: "$wd"
