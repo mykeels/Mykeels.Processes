@@ -31,7 +31,7 @@ jobs:
       working-directory: ${{env.bump}}
     - run: dotnet pack
       working-directory: ${{env.bump}}
-    - run: dotnet tool install dotnet-bump-version --configfile .config/disable-nuget.config --add-source .\tools\dotnet-bump\bin\
+    - run: dotnet tool install dotnet-bump-version --configfile .config/disable-nuget.config --add-source ./tools/dotnet-bump/bin
       working-directory: ./
     - run: dotnet tool restore
       working-directory: ./
