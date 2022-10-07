@@ -22,3 +22,5 @@ jobs:
         dotnet-version: '6.0.300'
     - run: dotnet build
       working-directory: ${{env.wd}}
+    - run: dotnet pack
+      working-directory: ${{env.wd}}
