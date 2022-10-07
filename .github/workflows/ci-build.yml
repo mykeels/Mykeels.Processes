@@ -36,3 +36,12 @@ jobs:
     - run: dotnet tool restore
       working-directory: ./
     
+    - run: dotnet nuget push ./bin/Debug/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      working-directory: ${{env.ws}}
+    - run: dotnet bump patch
+      working-directory: ${{env.ws}}
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.OUR_GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
