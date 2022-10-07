@@ -82,5 +82,30 @@ public class Sherlock
             return processes;
         });
     }
+
+    public async static Task KillProcess(int processId)
+    {
+        await Task.Run(() =>
+        {
+            if (OperatingSystem.IsWindows())
+            {
+                var process = Shell.Run(
+                    new List<string> {
+                        $"TaskKill /F /PID {processId}"
+                    }
+                );
+                process.WaitForExit();
+            }
+            else if (OperatingSystem.IsLinux() || OperatingSystem.IsOSX())
+            {
+                var process = Shell.Run(
+                    new List<string> {
+                        $"kill -9 {processId}"
+                    }
+                );
+                process.WaitForExit();
+            }
+        });
+    }
 }
 
