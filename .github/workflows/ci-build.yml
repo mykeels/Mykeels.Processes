@@ -28,9 +28,9 @@ jobs:
 
 # build dotnet-bump tool
     - run: dotnet build
-      working-directory: ${{bump}}
+      working-directory: ${{env.bump}}
     - run: dotnet pack
-      working-directory: ${{bump}}
+      working-directory: ${{env.bump}}
     - run: dotnet tool install --configfile .config/disable-nuget.config --add-source .\tools\dotnet-bump\bin\ dotnet-bump-version
       working-directory: ./
     - run: dotnet tool restore
