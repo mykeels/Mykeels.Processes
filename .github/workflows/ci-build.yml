@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       wd: ./lib
+      bump: ./tools/dotnet-bump
 
     strategy:
       matrix:
@@ -24,3 +25,12 @@ jobs:
       working-directory: ${{env.wd}}
     - run: dotnet pack
       working-directory: ${{env.wd}}
+
+# build dotnet-bump tool
+    - run: dotnet build
+      working-directory: ${{bump}}
+    - run: dotnet pack
+      working-directory: ${{bump}}
+    - run: dotnet tool install --configfile .config/disable-nuget.config --add-source .\tools\dotnet-bump\bin\ dotnet-bump-version
+      working-directory: ${{bump}}
+    
