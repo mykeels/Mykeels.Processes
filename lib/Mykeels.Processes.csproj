@@ -5,5 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Version>0.0.1</Version>
+    <Description>A classlib providing tools for listing and killing processes
+    </Description>
+    <Authors>Michael Ikechi</Authors>
+    <PackageProjectUrl>https://github.com/mykeels/Mykeels.Processes</PackageProjectUrl>
+    <PackageReadmeFile>../README.md</PackageReadmeFile>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+</ItemGroup>
 </Project>
