@@ -111,7 +111,7 @@ public class Sherlock
     public async static Task KillProcessAtPort(int portId)
     {
         var processes = await ListProcesses();
-        var process = processes.Where(p => p.LocalAddress?.EndsWith($":{portId}") ?? false).First();
+        var process = processes.Where(p => p.LocalAddress?.EndsWith($":{portId}") ?? false).FirstOrDefault();
         if (process != null) {
             await KillProcess(process.ProcessId);
         }
