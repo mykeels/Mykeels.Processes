@@ -17,7 +17,7 @@ public class Sherlock
                 var process = Shell.Run(
                     new List<string> {
                         $"netstat -nao"
-                    }, 
+                    },
                     outputHandler: (string line) =>
                     {
                         if (line.Contains("TCP") || line.Contains("UDP"))
@@ -50,7 +50,7 @@ public class Sherlock
                 var process = Shell.Run(
                     new List<string> {
                         $"lsof -Pi"
-                    }, 
+                    },
                     outputHandler: (string line) =>
                     {
                         if (line.Contains("TCP") || line.Contains("UDP"))
@@ -106,6 +106,15 @@ public class Sherlock
                 process.WaitForExit();
             }
         });
+    }
+
+    public async static Task KillProcessAtPort(int portId)
+    {
+        var processes = await ListProcesses();
+        var process = processes.Where(p => p.LocalAddress?.EndsWith($":{portId}") ?? false).First();
+        if (process != null) {
+            await KillProcess(process.ProcessId);
+        }
     }
 }
 
