@@ -2,18 +2,22 @@
 
 A library for:
 
-- Listing Running Processes using Network
+- Listing Processes
 - Killing a Process
 
 ## Usage
 
-```sh
-dotnet add package Mykeels.Processes
-```
-
 ```cs
 using Mykeels.Processes;
 
-await Sherlock.ListProcesses();
-await Sherlock.KillProcess(1234);
+const processes = await Sherlock.ListProcesses();
+
+// to kill a process running at port 3000
+const culpritProcess = processes.Find(p => p.LocalAddress?.EndsWith($":3000") ?? false);
+if (culpritProcess != null) {
+    await Sherlock.KillProcess();
+}
+
+// or
+await Sherlock.KillProcessByPort(3000);
 ```
