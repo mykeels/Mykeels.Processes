@@ -37,9 +37,9 @@ jobs:
       working-directory: ./
     
     - run: dotnet nuget push ./bin/Debug/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
-      working-directory: ${{env.ws}}
+      working-directory: ${{env.wd}}
     - run: dotnet bump patch
-      working-directory: ${{env.ws}}
+      working-directory: ${{env.wd}}
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
