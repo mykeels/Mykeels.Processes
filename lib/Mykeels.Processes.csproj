@@ -9,7 +9,7 @@
     </Description>
     <Authors>Michael Ikechi</Authors>
     <PackageProjectUrl>https://github.com/mykeels/Mykeels.Processes</PackageProjectUrl>
-    <PackageReadmeFile>../README.md</PackageReadmeFile>
+    <PackageReadmeFile>./README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\"/>
