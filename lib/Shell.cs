@@ -80,6 +80,7 @@ public class Shell
             process.StandardInput.WriteLine(command);
         }
         process.BeginOutputReadLine();
+        process.BeginErrorReadLine();
 
         return process;
     }
@@ -142,6 +143,7 @@ public class Shell
             process.StandardInput.WriteLine(command);
         }
         process.BeginOutputReadLine();
+        process.BeginErrorReadLine();
 
         return process;
     }
