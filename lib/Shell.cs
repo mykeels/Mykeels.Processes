@@ -52,6 +52,7 @@ public class Shell
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardInput = true;
         process.StartInfo.RedirectStandardOutput = true;
+        process.StartInfo.RedirectStandardError = true;
         process.StartInfo.CreateNoWindow = true;
         process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 
@@ -112,6 +113,7 @@ public class Shell
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardInput = true;
         process.StartInfo.RedirectStandardOutput = true;
+        process.StartInfo.RedirectStandardError = true;
         process.StartInfo.CreateNoWindow = true;
         process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 
