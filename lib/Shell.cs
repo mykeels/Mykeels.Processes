@@ -68,6 +68,11 @@ public class Shell
                     string line = (args.Data ?? String.Empty);
                     outputHandler(line);
                 };
+        process.ErrorDataReceived += (object sender, DataReceivedEventArgs args) =>
+                {
+                    string line = (args.Data ?? String.Empty);
+                    outputHandler($"Error: {line}");
+                };
         process.Start();
         foreach (string command in commands)
         {
@@ -123,6 +128,11 @@ public class Shell
                 {
                     string line = (args.Data ?? String.Empty);
                     outputHandler(line);
+                };
+        process.ErrorDataReceived += (object sender, DataReceivedEventArgs args) =>
+                {
+                    string line = (args.Data ?? String.Empty);
+                    outputHandler($"Error: {line}");
                 };
         process.Start();
         foreach (string command in commands)
