@@ -6,6 +6,16 @@ using System.Collections;
 public class Shell
 {
     public static Process Run(
+        string command,
+        IDictionary<string, string?>? envs = null,
+        string? cwd = null,
+        Action<string>? outputHandler = null
+    )
+    {
+        return Shell.Run(new List<string> { command }, envs, cwd, outputHandler);
+    }
+
+    public static Process Run(
         List<string> commands,
         IDictionary<string, string?>? envs = null,
         string? cwd = null,
