@@ -28,7 +28,7 @@ public class Shell
         }
         else if (System.OperatingSystem.IsLinux() || System.OperatingSystem.IsMacOS())
         {
-            return RunInCMD(commands, envs, cwd, outputHandler);
+            return RunInBash(commands, envs, cwd, outputHandler);
         }
         throw new Exception("Unsupported OS Platform");
     }
