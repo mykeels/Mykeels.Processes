@@ -12,7 +12,7 @@ public class Sherlock
 
         return await Task.Run(() =>
         {
-            if (OperatingSystem.IsWindows())
+            if (System.OperatingSystem.IsWindows())
             {
                 var process = Shell.Run(
                     new List<string> {
@@ -45,7 +45,7 @@ public class Sherlock
                 );
                 process.WaitForExit();
             }
-            else if (OperatingSystem.IsLinux() || OperatingSystem.IsOSX())
+            else if (System.OperatingSystem.IsLinux() || System.OperatingSystem.IsMacOS())
             {
                 var process = Shell.Run(
                     new List<string> {
@@ -87,7 +87,7 @@ public class Sherlock
     {
         await Task.Run(() =>
         {
-            if (OperatingSystem.IsWindows())
+            if (System.OperatingSystem.IsWindows())
             {
                 var process = Shell.Run(
                     new List<string> {
@@ -96,7 +96,7 @@ public class Sherlock
                 );
                 process.WaitForExit();
             }
-            else if (OperatingSystem.IsLinux() || OperatingSystem.IsOSX())
+            else if (System.OperatingSystem.IsLinux() || System.OperatingSystem.IsMacOS())
             {
                 var process = Shell.Run(
                     new List<string> {
