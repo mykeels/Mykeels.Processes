@@ -22,11 +22,11 @@ public class Shell
         Action<string>? outputHandler = null
     )
     {
-        if (OperatingSystem.IsWindows())
+        if (System.OperatingSystem.IsWindows())
         {
             return RunInCMD(commands, envs, cwd, outputHandler);
         }
-        else if (OperatingSystem.IsLinux() || OperatingSystem.IsOSX())
+        else if (System.OperatingSystem.IsLinux() || System.OperatingSystem.IsMacOS())
         {
             return RunInCMD(commands, envs, cwd, outputHandler);
         }
