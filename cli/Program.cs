@@ -4,4 +4,11 @@ using Mykeels.Processes;
 
 Console.WriteLine("Hello, World!");
 
-await Sherlock.ListProcesses();
+var process = Shell.Run(
+    new List<string>() {
+        @"echo hello"
+    }
+);
+process.WaitForExit();
+// await Sherlock.ListProcesses();
+// await Sherlock.KillProcessAtPort(3000);
